@@ -4,12 +4,17 @@
     --notobold:'NotoSans-bold';
     --mcolor:#313131;
     --dots:#ABABAB;
-
+    --body:white;
+    
+}
+body {
+    background-color: var(--body);
+   
 }
 /* Header style start*/
 .header__top {
     height: 50px;
-    background-color: var(--mcolor);
+    background-color: var(--body);
     color: white;
     display: flex;
     align-items: center;
@@ -25,7 +30,7 @@
 .top__box select {
    background-color: var(--mcolor);
    color: white;
-   font-family: var(--mcolor);
+   font-family: var(--notoreg);
    font-weight: 400;
    font-size: 14px;
    line-height: 20px;
@@ -44,15 +49,17 @@
 .top-items a {
     text-decoration: none;
     color: white;
-    font-family: var(--mcolor);
+    font-family: var(--notoreg);
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
     text-align: center;
     color: #FFFFFF;
     position: relative;
+    transition: 0.5s;
 }
 .top-items a:hover {
+    
     text-decoration: underline;
     color: white;
 }
@@ -205,12 +212,17 @@
 /* Carusel start */
 .carousel {
     position: relative;
+    z-index: 0;
 }
 .indicator-items {
     position: absolute ;
     text-align: end;
     
     column-gap: 25px;
+}
+.carousel-inner {
+    position: relative;
+    z-index: -1;
 }
 .indicator-item {
     height: 10px !important;
@@ -222,6 +234,47 @@
 .carousel-indicators [data-bs-target].active {
     width: 15px !important;
     height: 15px !important;
+}
+.carousel-item  {
+   position: relative;
+   z-index: 1;
+}
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    background-color: grey;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    box-shadow: 0px 0px 90px 60px grey;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.carousel-item:hover::after {
+    opacity: 1;
+}
+.active img {
+   
+    /* border-radius: 50%; */
+    /* filter: drop-shadow(-10px 5px 3px rgba(0, 0, 0, 0.25));
+    box-shadow: inset 10px 10px 10px grey; */
+    position: relative;
+    z-index: 3;
+}
+.active img::after {
+    content: '+666';
+    position: absolute;
+    background: grey;
+    z-index: 3;
+    width: 100px;
+    height: 30px;
+    bottom: 40px;
+    left: 50%;
+    box-shadow: 0 0 20px grey;
 }
 .header-title {
     font-family: var(--notobold);
@@ -249,64 +302,9 @@
 /* Carusel end */
 /* Main section start */
 /* Gadjet styles start */
-.watch,
-.airpod,
-.power,
-.remax {
-    position: relative;
-}
 
-.watch .name-cost,
-.airpod .name-cost {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-}
-.power .name-cost,
-.remax .name-cost {
-     position: absolute;
-     top: 0;
-     left: 0;
-}
-.watch::before,
-.airpod::before,
-.power::before,
-.remax::before {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-size: 20px;
-    line-height: 70px;
-    text-align: center;
-    font-family: var(--notoreg);
-    font-weight: 400;
-    background-color: var(--mcolor);
-    color: white;
-}
-.watch::before {
-    content: '-57%';
-}
-.airpod::before {
-    content: '-30%';
-}
-.power::before {
-    content: '-20%';
-}
-.remax::before {
-    content: '-10%';
-}
-.watch::before,
-.airpod::before {
-    top: 20px;
-    left: 20px;
-}
-.power::before,
-.remax::before {
-    bottom: 15px;
-    left: 20px;
-}
+
+
 .gadjet-name {
     font-weight: 500;
     font-size: 24px;
@@ -322,7 +320,8 @@
     color: var(--mcolor);
 }
 .gadjet-section img {
-    width: 100%;
+    display: block;
+    width: 100% !important;
 }
 .gadjet-button {
     max-width: 190px;
@@ -349,11 +348,50 @@
     line-height: 19px;
     font-family: var(--notoreg);
 }
+.phone-items {
+    /* row-gap: 10px; */
+    gap: 10px;
+}
 .phone-item {
+    height: 330px;
     max-width: 300px;
     position: relative;
     transition: 0.5s;
     box-sizing: border-box;
+}
+.phone-img{
+    position: relative;
+    z-index: 1;
+}
+.phone-img img {
+    position: relative;
+    z-index: 1;
+}
+
+
+.phone-img {
+   margin-bottom: 10px;
+   position: relative;
+   z-index: 1;
+}
+
+.phone-img::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 8px;
+    bottom: 0;
+    left: 50%;
+    background-color: grey;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    box-shadow: 0px 0px 40px 20px grey;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.phone-item:hover .phone-img::after {
+    opacity: 1;
 }
 .name-price {
     width: 100%;
@@ -365,8 +403,6 @@
 .phone-item img {
     display: block;
     margin: 0 auto;
-    width: 100%;
-    margin-bottom: 30px;
 }
 .phone-item h3,p {
     text-align: center;
@@ -378,7 +414,8 @@
     right: 17px;
     color: var(--mcolor);
     font-size: 17px;
-    display: none;
+    display: block;
+    transform: scale(0);
     transition: 0.5s;
 }
 .buy-button {
@@ -386,47 +423,98 @@
     padding: 5px 36px;
     left: 50%;
     bottom: 30px;
-    transform: translateX(-50%) translateY(50%);
+    transform: translateX(-50%) translateY(50%) scale(0);
     text-align: center;
     max-width: 100px;
     margin: 0 auto;
-    display: none;
+    display: block;
     transition: 0.5s;
 }
-.phone-item:hover .buy-button,
+.phone-item:hover .buy-button {
+    transform: translateX(-50%) translateY(50%) scale(1);
+}
 .phone-item:hover span {
-    display: block;
+    transform: scale(1);
 }
 .phone-item:hover {
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
+
+
+
 /* Phone style end */
 /* Laptop style start */
 .laptop .name-price{
     top: 200px;
 }
+.laptop-items {
+    gap: 10px;
+}
 .laptop img {
-    margin-bottom: 40px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    /* margin-bottom: 40px; */
+}
+.laptop .phone-img::after {
+    top: 50%;
+    width: 30%;
+    height: 30%;
+   
+    bottom: 0;
+    left: 50%;
+    /* background-color: grey; */
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    box-shadow: 0px 0px 80px 50px grey;
+    opacity: 0.5;
+    transition: 0.5s;
 }
 /* Top-sell start */
 .top-sell .name-price{
     top: 200px;
 }
+.top-sell img {
+    width: 100%;
+}
 /* Top-sell end */
 /* Laptop style end */
 /* Play section start */
 .play-section {
-    position: relative;
     height: 500px;
 }
-.play-img {
-    position: absolute;
+.play-box img {
     width: 100%;
-    left: 0;
-    top: 0;
 }
 .play-left img {
     margin-bottom: 30px;
+}
+.topsell-img {
+    position: relative;
+    z-index: 1;
+}
+.top-sell img {
+    position: relative;
+    z-index: 1;
+}
+.topsell-img::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 55%;
+    left: 50%;
+    background-color: grey;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    box-shadow: 0px 0px 50px 40px grey;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.phone-item:hover .topsell-img::after {
+    opacity: 1;
 }
 
 .play-button {
@@ -496,6 +584,9 @@
 }
 .list-link {
     margin: 0 auto;
+}
+.list-link .nav-link::after {
+    display: none;
 }
 .list-link .nav-link {
     color: white !important;

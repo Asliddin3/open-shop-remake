@@ -1,3 +1,37 @@
+@media (prefers-color-scheme:dark) {
+    :root {
+        --mcolor:white;
+        --dots:white;
+        --body:#313131;
+    }
+    .header__top {
+        background-color: #0C0C0C;
+    }
+    .top__box select {
+        color: var(--mcolor);
+        background-color: #0C0C0C;
+    }
+    .input-group div {
+        background-color: var(--body) !important;
+    }
+    .input-group .form-control {
+        background-color: var(--body) !important;
+    }
+    .main-title {
+        color: white;
+    }
+    .all-btn {
+        background-color: var(--body);
+        color: white;
+        border:1px solid white;
+    }
+    .footer {
+        background-color:#0C0C0C ;
+    }
+    .nav-link::after {
+        background-color: white;
+    }
+}
 @media (max-width:992px) {
    
     .logo-search {
@@ -51,13 +85,9 @@
         line-height: 20px;
     }
     .play-section {
-        height: 300px;
+        height: auto;
     }
-    .play-left {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+
     .play-title {
         font-size: 42px;
         line-height: 46px;
@@ -108,10 +138,17 @@
         line-height: 16px;
         width: 90px;
     }
+    .carousel-item::after{
+        width: 16%;
+        height: 50%;
+        box-shadow: 0px 0px 70px 40px grey;
+    
+    }
     
 }
 @media (max-width:576px) {
-    .watch {
+    
+    /* .watch {
         height: 300px;
         overflow: hidden;
     }
@@ -123,12 +160,14 @@
     .power {
         height: 300px;
         overflow: hidden;
+    } */
+   
+    .main-title {
+        text-align: center;
     }
-    .gadjet-section img {
-        max-width: 300px;
-        background-position: bottom;
+    .laptop img {
+        width: 100%;
     }
-    
     .power::before,
     .remax::before {
         bottom: 20px;
@@ -145,8 +184,14 @@
         position: static;
         max-width: 400px;
         background-position: right;
-      
     }
+    .top-sell img {
+        width: 100%;
+    }
+    .phone-item {
+        height: 320px;
+    }
+    
 }
 @media (max-width:480px) {
     .top-items {
@@ -210,7 +255,7 @@
      .top__box select {
          margin-right: 0;
      }
-     .watch {
+     /* .watch {
         height: 240px;
         overflow: hidden;
     }
@@ -222,7 +267,7 @@
     .power {
         height: 220px;
         overflow: hidden;
-    }
+    } */
     
 }
 
@@ -244,8 +289,14 @@
     
 }
 @media (max-width:320px) {
+    .laptop .phone-item {
+        height: 280px;
+    }
     .search-item span {
         padding: 0;
+    }
+    .phone-item {
+        height: 330px;
     }
     .search .input-group {
         padding-left: 0;
