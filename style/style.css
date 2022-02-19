@@ -14,7 +14,7 @@ body {
 /* Header style start*/
 .header__top {
     height: 50px;
-    background-color: var(--body);
+    background-color: #0C0C0C;
     color: white;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@ body {
     display: flex;
 }
 .top__box select {
-   background-color: var(--mcolor);
+   background-color: #0C0C0C;
    color: white;
    font-family: var(--notoreg);
    font-weight: 400;
@@ -253,6 +253,7 @@ body {
     box-shadow: 0px 0px 90px 60px grey;
     opacity: 0.5;
     transition: 0.5s;
+    display: none;
 }
 .carousel-item:hover::after {
     opacity: 1;
@@ -265,17 +266,7 @@ body {
     position: relative;
     z-index: 3;
 }
-.active img::after {
-    content: '+666';
-    position: absolute;
-    background: grey;
-    z-index: 3;
-    width: 100px;
-    height: 30px;
-    bottom: 40px;
-    left: 50%;
-    box-shadow: 0 0 20px grey;
-}
+
 .header-title {
     font-family: var(--notobold);
     font-weight: 600;
@@ -389,6 +380,7 @@ body {
     box-shadow: 0px 0px 40px 20px grey;
     opacity: 0.5;
     transition: 0.5s;
+    display: none;
 }
 .phone-item:hover .phone-img::after {
     opacity: 1;
@@ -470,6 +462,7 @@ body {
     box-shadow: 0px 0px 80px 50px grey;
     opacity: 0.5;
     transition: 0.5s;
+    
 }
 /* Top-sell start */
 .top-sell .name-price{
@@ -512,6 +505,7 @@ body {
     box-shadow: 0px 0px 50px 40px grey;
     opacity: 0.5;
     transition: 0.5s;
+    display: none;
 }
 .phone-item:hover .topsell-img::after {
     opacity: 1;
